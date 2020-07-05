@@ -1,4 +1,4 @@
-let videoGet = require('./youtubeVideosGetApi');
+let videoGet = require('../api/youtubeVideosGetApi');
 var express = require('express');
 var router = express.Router();
 let fs = require("fs");

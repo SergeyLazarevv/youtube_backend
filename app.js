@@ -3,9 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+let videoGet = require('./api/youtubeVideosGetApi');
 var indexRouter = require('./routes/index');
 var videosRouter = require('./routes/videos');
+let fs = require("fs");
 
 var app = express();
 
@@ -18,6 +19,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//update data file every 24h
+setInterval(function() {
+  videoGet().then(function(data) {
+    //save data in data.txt
+    fs.writeFile("data.txt", JSON.stringify(data), function(){
+      console.log('data file has been updated...')
+    });
+  });
+}, 86400000);
 
 app.use('/', indexRouter);
 app.use('/videos', videosRouter);
