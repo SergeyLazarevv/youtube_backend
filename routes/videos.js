@@ -24,7 +24,6 @@ router.get('/', function(req, res) {
       //sending data to client from data.txt file
       console.log('data from data.txt read successfully')
       res.send(data);
-      console.log(data)
     }
 });
 });
