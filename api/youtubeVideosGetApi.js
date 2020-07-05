@@ -6,7 +6,7 @@ module.exports = function () {
   var params = {
     chart:'mostPopular',
     part: 'snippet,statistics',
-    maxResults: 2,
+    maxResults: 40,
     key: 'AIzaSyDrtW5dLU5FZwf-DV4ixXrIfeWDhZ1iB4c'
   };
   return axios.get(ROOT_URL, { params: params })
