@@ -11,7 +11,6 @@ module.exports = function () {
   };
   return axios.get(ROOT_URL, { params: params })
     .then(function(response) {
-      console.log('return')
     return response.data.items;
     })
     .catch(function(error) {

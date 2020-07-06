@@ -5,6 +5,9 @@ let fs = require("fs");
 
 /* GET users listing. */
 router.get('/', function(req, res) {
+  res.set('Access-Control-Allow-Origin','*')
+  //res.set('Access-Control-Allow-Methods','*')
+  res.set('Access-Control-Allow-Headers','origin, content-type, accept')
   //reading data file...
   fs.readFile("data.txt", "utf8", function(error,data){ 
     if (error) {
